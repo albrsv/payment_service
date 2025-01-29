@@ -22,7 +22,6 @@ class PurchaseService
     {
         $this->data = $data;
         $this->projectFactory = $projectFactory;
-
         $this->paymentRepository = (new PaymentRepositoryFactory())->create();
     }
 

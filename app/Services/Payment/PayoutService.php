@@ -18,14 +18,10 @@ class PayoutService
     protected ProjectFactoryInterface $projectFactory;
     protected array $data;
 
-    public function __construct(array $data, ?ProjectFactoryInterface $projectFactory = null)
+    public function __construct(array $data, ProjectFactoryInterface $projectFactory = new ProjectFactory())
     {
         $this->data = $data;
-
-        if ($projectFactory === null) {
-            $this->projectFactory = new ProjectFactory();
-        }
-
+        $this->projectFactory = $projectFactory;
         $this->paymentRepository = (new PaymentRepositoryFactory())->create();
     }
 
